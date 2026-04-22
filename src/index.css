@@ -1,0 +1,601 @@
+:root {
+  --light: #f9f2e0;
+  --background: rgba(0, 0, 0, 0.5);
+  --accent: #4e9a85;
+  --accent2: #9a6779;
+  --accent-dark: #307662;
+  --glow: #3ae180;
+  --black: #1a1a1a;
+  --pit: rgba(34, 12, 0, 0.6);
+  --field-border-radius: 5px;
+}
+@font-face {
+  font-family: 'Inknut Antiqua';
+  src: url(./assets/fonts/InknutAntiqua-Regular.ttf) format('truetype');
+}
+
+* {
+  color: var(--light);
+  box-sizing: border-box;
+  font-family: 'Inknut Antiqua';
+}
+
+body {
+  margin: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/* FLEX */
+
+.flex {
+  display: flex;
+}
+
+.flex.horizontal {
+  flex-direction: row;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+.flex.space-around {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex.horizontal .card {
+  width: 100%;
+}
+
+.flex.vertical {
+  flex-direction: column;
+}
+
+.flex.flex-end {
+  justify-content: flex-end;
+}
+
+.flex.flex-start {
+  justify-content: flex-start;
+}
+
+/* CONTAINER */
+
+.container {
+  width: 70%;
+  max-width: 900px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.form-container {
+  background-color: var(--background);
+  border-radius: 10px;
+  padding: 30px 30px;
+  backdrop-filter: blur(10px);
+  width: 40%;
+  max-width: 500px;
+  margin: auto;
+}
+
+div.auth {
+  overflow: hidden;
+  box-sizing: content-box;
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url('./assets/images/LoginScreen.png');
+}
+
+div.menu {
+  display: flex;
+  vertical-align: center;
+  overflow: hidden;
+  box-sizing: content-box;
+  margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('./assets/images/MainMenu.png');
+  background-size: cover;
+}
+
+div.game {
+  overflow: hidden;
+  box-sizing: content-box;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url('./assets/images/Game.png');
+  background-size: cover;
+  background-position: top;
+}
+
+.left {
+  width: 400px;
+  margin: auto 60% auto auto;
+}
+
+.wide {
+  width: 70%;
+  max-width: 800px;
+}
+
+/* SPACER */
+
+.spacer {
+  height: 100px;
+  width: 100px;
+}
+
+.spacer-small {
+  height: 20px;
+  width: 20px;
+}
+
+.spacer-medium {
+  height: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+/* PLAYER PROFILE */
+.card {
+  background-color: var(--black);
+  border-radius: 10px;
+  padding: 20px 40px;
+  margin: 10px 0;
+}
+
+.card.stats {
+  text-align: center;
+}
+
+.form-container p {
+  text-align: center;
+}
+
+#player {
+  width: 50%;
+}
+
+#player p {
+  text-align: left;
+}
+
+/* RUNNING GAME */
+#exit-icon {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 20pt;
+}
+
+#exit-icon:hover {
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.profile-picture {
+  box-shadow: var(--background) 2px 2px 2px 2px;
+  border-radius: 100%;
+  height: 150px;
+  width: auto;
+}
+
+.field {
+  width: 60px;
+  height: 60px;
+  background-color: var(--pit);
+  box-shadow: inset 20px 20px 9px -7px rgba(0, 0, 0, 1);
+  border-radius: var(--field-border-radius);
+  margin: 10px;
+}
+
+.field.total {
+  margin: 20px auto;
+  width: 170px;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.total.right {
+  text-align: right;
+}
+
+.total.left {
+  text-align: left;
+}
+
+.valid-move {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--glow);
+  border-radius: var(--field-border-radius);
+}
+
+.valid-move:hover {
+  background-color: #02ff6c1a;
+  cursor: pointer;
+}
+
+.face {
+  display: grid;
+  grid-template-areas:
+    'a . c'
+    'e g f'
+    'd . b';
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+
+  flex: 0 0 auto;
+  margin: auto;
+  padding: 7px;
+  width: 80%;
+  height: 80%;
+
+  background-color: #535252;
+  box-shadow: inset 0 2px rgb(114, 114, 114), inset 0 -4px #292929,
+    inset 2px 0 rgb(114, 114, 114), inset -4px 0 #292929;
+  border-radius: 20%;
+}
+.pip {
+  display: block;
+  align-self: center;
+  justify-self: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgb(58, 58, 58);
+  background-color: rgb(209, 209, 209);
+  /* box-shadow: inset 0 5px #111, inset 0 -3px #555; */
+}
+.face.opponent {
+  background-color: var(--accent);
+  box-shadow: inset 0 2px #6aa393, inset 0 -4px var(--accent-dark),
+    inset 2px 0 #6aa393, inset -4px 0 var(--accent-dark);
+}
+.pip.opponent {
+  background-color: #121212;
+}
+
+.pip:nth-child(2) {
+  grid-area: b;
+}
+.pip:nth-child(3) {
+  grid-area: c;
+}
+.pip:nth-child(4) {
+  grid-area: d;
+}
+.pip:nth-child(5) {
+  grid-area: e;
+}
+.pip:nth-child(6) {
+  grid-area: f;
+}
+/* This selects the last pip of odd-valued dice (1, 3, 5) and positions the pip in the center */
+.pip:nth-child(odd):last-child {
+  grid-area: g;
+}
+
+.css-dice {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.css-dice.small {
+  width: 30px;
+  height: 30px;
+}
+
+.css-dice.small .pip {
+  width: 7px;
+  height: 7px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+
+.dice {
+  width: 55px;
+  height: 55px;
+  background-size: cover;
+}
+
+.dice.small {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+}
+
+.dice-outline {
+  width: 64px;
+  height: 64px;
+  border: 1px dotted var(--light);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.total p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.total h3 {
+  margin: 0;
+  line-height: 35px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.end {
+  text-align: end;
+}
+
+.grid {
+  margin: 0 50px 0 0;
+}
+.flex.horizontal.end {
+  justify-content: flex-end;
+}
+
+.flex.horizontal.reversed {
+  flex-direction: row-reverse;
+}
+.grid.reversed {
+  margin: 0 0 0 50px;
+}
+
+/* PLAYER PROFILE */
+
+span.W {
+  color: var(--accent);
+}
+
+span.L {
+  color: var(--accent2);
+}
+
+.player-info {
+  width: 500px;
+  height: 170px;
+  margin: 20px 0;
+}
+
+/* INPUTS */
+
+input[type='text'],
+input[type='password'] {
+  background-color: transparent;
+  border: 1px solid var(--light);
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+input[type='checkbox'] {
+  background-color: var(--light);
+}
+
+/* BUTTONS */
+
+button.green {
+  background-color: var(--accent);
+  color: var(--light);
+  border: none;
+}
+
+button.green:hover {
+  background-color: var(--accent-dark);
+}
+
+button.big {
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 1.3rem;
+  width: 100%;
+}
+
+button.menu {
+  width: 100%;
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+button.text {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: var(--accent);
+  font-size: inherit;
+}
+
+button.text:hover {
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 15px;
+  margin: 10px;
+  border: 1px solid var(--light);
+  border-radius: 10px;
+  background: none;
+}
+
+button.number.active {
+  background: var(--accent);
+  border: none;
+}
+button.number:hover {
+  border: 1px solid var(--accent);
+}
+
+/* HEADINGS */
+
+h1 {
+  text-align: center;
+
+  font-size: 4rem;
+}
+
+h1.title {
+  letter-spacing: 1.5rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+h2.title {
+  letter-spacing: 0.7rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.underlined {
+  text-decoration: var(--glow) underline;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* SPINNER */
+.loader {
+  width: 90px;
+  margin: 50px auto;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--glow);
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* REMEMBER ME */
+.checkbox-wrapper-46 input[type='checkbox'] {
+  display: none;
+  visibility: hidden;
+}
+
+.checkbox-wrapper-46 .cbx {
+  margin: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.checkbox-wrapper-46 .cbx span {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-46 .cbx span:first-child {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  transform: scale(1);
+  vertical-align: middle;
+  border: 1px solid var(--light);
+  transition: all 0.2s ease;
+}
+
+.checkbox-wrapper-46 .cbx span:first-child svg {
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: 16px;
+  transition: all 0.3s ease;
+  transition-delay: 0.1s;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-46 .cbx span:first-child:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--light);
+  display: block;
+  transform: scale(0);
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.checkbox-wrapper-46 .cbx span:last-child {
+  padding-left: 8px;
+}
+
+.checkbox-wrapper-46 .cbx:hover span:first-child {
+  border-color: var(--light);
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
+  background: var(--light);
+  border-color: var(--light);
+  animation: wave-46 0.4s ease;
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
+  transform: scale(3.5);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+@keyframes wave-46 {
+  50% {
+    transform: scale(0.9);
+  }
+}
